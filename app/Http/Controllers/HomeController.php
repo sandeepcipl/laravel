@@ -25,4 +25,15 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function user()
+    {
+        return view('user');
+    }
+    public function create_user(Request $request)
+    {
+        $data = $request->all();
+        $userInfo = User::create($data); /* passes data to protected function  */
+        echo "<pre>";print_r($data);die;
+        die('checking');
+    }
 }
