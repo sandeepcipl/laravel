@@ -18,6 +18,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/user', 'HomeController@user');
+//Route::get('/user', 'Admin\UserController@userlist');
 Route::post('/create_user', 'HomeController@create_user');
 
+
+
+
+Route::group(['middleware' => ['auth']], function() {
+	Route::get('/user', 'Admin\UserController@userlist');
+	Route::get('/adduser', 'Admin\UserController@adduser');
+	Route::post('/addadminuser', 'Admin\UserController@addadminuser');
+});
