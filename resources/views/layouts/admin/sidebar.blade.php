@@ -19,6 +19,8 @@
           <a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
 		  <a href="{!! url('/user'); !!}"><i class="fa fa-dashboard"></i> <span>User</span></a>
 		  
+		  <a href="{!! url('/pages'); !!}"><i class="fa fa-dashboard"></i> <span>pages</span></a>
+		  
 		</li>
         <!--li class="treeview">
           <a href="#">

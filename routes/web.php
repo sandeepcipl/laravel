@@ -22,10 +22,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/create_user', 'HomeController@create_user');
 
 
-
+Route::resource('/pages','Admin\PageController');
 
 Route::group(['middleware' => ['auth']], function() {
 	Route::get('/user', 'Admin\UserController@userlist');
 	Route::get('/adduser', 'Admin\UserController@adduser');
 	Route::post('/addadminuser', 'Admin\UserController@addadminuser');
+	
+	//Route::resource('pages', 'Admin\PageController');
+	
 });

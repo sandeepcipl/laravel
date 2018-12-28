@@ -17,8 +17,9 @@ class PageController extends Controller
     {
          //$pages = Page::all();
 		 
-		 $pages = Page::where('page_status', 1)->get();
-
+		// $pages = Page::where('page_status', 1)->get();
+	
+		$pages = Page::where('page_status', 1)->simplePaginate(5);
         return view('pages.index', compact('pages'));
     }
 
@@ -41,7 +42,7 @@ class PageController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-        'page_key'=>'required',
+        'page_key'=>'required|unique:pages',
         'page_content'=> 'required'
       ]);
       $page = new Page([

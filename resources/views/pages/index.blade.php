@@ -7,7 +7,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Add User
+        Add Page
         <small>Admin panel</small>
       </h1>
       <ol class="breadcrumb">
@@ -25,7 +25,8 @@
 				 <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Create User</h3>
+              <h3 class="box-title">Create Page</h3>
+			   <a href="{!! url('/pages/create'); !!}"><span class="label label-success">Add Page</span></a>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -41,7 +42,11 @@
 
                 <div class="card-body">
 				
-				
+				 @if(session()->get('success'))
+    <div class="alert alert-success">
+      {{ session()->get('success') }}  
+    </div><br />
+  @endif
 				
 				
 				
@@ -71,7 +76,12 @@
                 </form>
             </td>
         </tr>
+		
         @endforeach
+		<tr><td colspan='5'>
+			{{ $pages->links() }}
+			</td>
+		</tr>	
     </tbody>
   </table>
 					
